@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "formaAngular28122020"
+    }
+  },
+  "defaultProject": "formaAngular28122020",
+  "cli": {
+    "analytics": false
+  }
 }
