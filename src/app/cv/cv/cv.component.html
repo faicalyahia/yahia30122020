@@ -2,8 +2,8 @@
   <div class="col">
     <div class="alert alert-info">
       {{ date | date: "full" | uppercase }} <br />
-      {{ 1 | euroDollar: 0 | currency: "USD" }}<br />
-      {{ 1 | euroDollar: 1 | currency: "EUR" }}<br />
+<!--       {{ 1 | euroDollar: 0 | currency: "USD" }}<br />
+      {{ 1 | euroDollar: 1 | currency: "EUR" }}<br /> -->
     </div>
     <app-list (forwardSelectedPersonne)="selectPersonne($event)"></app-list>
   </div>

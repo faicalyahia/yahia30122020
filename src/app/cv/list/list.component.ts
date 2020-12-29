@@ -18,12 +18,12 @@ export class ListComponent implements OnInit {
         'sellaouti',
         'aymen',
         'teacher',
-        'rotating_card_profile.png',
+        '',
         38,
         2145
       ),
       new Personne(
-        1,
+        2,
         'Bouzid',
         'Badreddine',
         'Analyste',
@@ -32,11 +32,11 @@ export class ListComponent implements OnInit {
         7524
       ),
       new Personne(
-        1,
+        3,
         'Bouzid',
         'Badreddine',
         'Analyste',
-        'rotating_card_profile2.png',
+        '                ',
         41,
         7524
       ),

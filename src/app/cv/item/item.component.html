@@ -2,7 +2,7 @@
   (click)="sendSelectedPersonne()"
 >
   <img
-    src="assets/images/{{ personne?.path }}"
+    src="assets/images/{{ personne?.path | defaultImage }}"
     alt="{{ personne?.firstname }}"
     width="50px"
     heigth="50px"

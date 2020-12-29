@@ -20,6 +20,8 @@ import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.c
 import { WordComponent } from './directives/word/word.component';
 import { TestNgClassComponent } from './directives/test-ng-class/test-ng-class.component';
 import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { TodoComponent } from './todo/todo.component';
 
 
 @NgModule({
@@ -39,14 +41,12 @@ import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
     TestNgStyleComponent,
     WordComponent,
     TestNgClassComponent,
-    EuroDollarPipe
+    EuroDollarPipe,
+    DefaultImagePipe,
+    TodoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
