@@ -10,6 +10,12 @@ import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwoWayComponent } from './components/two-way/two-way.component';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
+import { FilsComponent } from './components/fils/fils.component';
+import { PereComponent } from './components/pere/pere.component';
+import { CvComponent } from './cv/cv/cv.component';
+import { ItemComponent } from './cv/item/item.component';
+import { ListComponent } from './cv/list/list.component';
+import { CardComponent } from './cv/card/card.component';
 
 
 @NgModule({
@@ -19,7 +25,13 @@ import { RotatingCardComponent } from './components/rotating-card/rotating-card.
     SecondComponent,
     ColorComponent,
     TwoWayComponent,
-    RotatingCardComponent
+    RotatingCardComponent,
+    FilsComponent,
+    PereComponent,
+    CvComponent,
+    ItemComponent,
+    ListComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

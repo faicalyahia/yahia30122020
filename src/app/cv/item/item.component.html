@@ -1,0 +1,12 @@
+<div
+  (click)="sendSelectedPersonne()"
+>
+  <img
+    src="assets/images/{{ personne?.path }}"
+    alt="{{ personne?.firstname }}"
+    width="50px"
+    heigth="50px"
+    class="rounded-circle"
+  />
+  {{ personne?.firstname }} {{ personne?.name }}
+</div>
