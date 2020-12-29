@@ -19,6 +19,7 @@ import { CardComponent } from './cv/card/card.component';
 import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.component';
 import { WordComponent } from './directives/word/word.component';
 import { TestNgClassComponent } from './directives/test-ng-class/test-ng-class.component';
+import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TestNgClassComponent } from './directives/test-ng-class/test-ng-class.c
     CardComponent,
     TestNgStyleComponent,
     WordComponent,
-    TestNgClassComponent
+    TestNgClassComponent,
+    EuroDollarPipe
   ],
   imports: [
     BrowserModule,
