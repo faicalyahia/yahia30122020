@@ -1,22 +1,19 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Personne } from '../model/personne';
 
+const API_PERSONNES =
+  'https://immense-citadel-91115.herokuapp.com/api/personnes/';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CvService {
   private personnes: Personne[];
-  constructor() {
+  constructor(private http: HttpClient) {
     this.personnes = [
-      new Personne(
-        1,
-        'sellaouti',
-        'aymen',
-        'teacher',
-        '',
-        38,
-        2145
-      ),
+      new Personne(1, 'sellaouti', 'aymen', 'teacher', '', 38, 2145),
       new Personne(
         2,
         'Bouzid',
@@ -37,17 +34,27 @@ export class CvService {
       ),
     ];
   }
-  getPersonnes(): Personne[] {
+  getFakePersonnes(): Personne[] {
     return this.personnes;
   }
-
-  findPersonneById(id: number): Personne {
-    return this.personnes.find(
-      (personne) => personne.id === id
-    );
+  getPersonnes(): Observable<Personne[]> {
+    return this.http.get<Personne[]>(API_PERSONNES);
   }
 
-  deletePersonne(personne: Personne): boolean {
+  fakeFindPersonneById(id: number): Personne {
+    return this.personnes.find((personne) => personne.id === id);
+  }
+  findPersonneById(id: number): Observable<Personne> {
+    return this.http.get<Personne>(API_PERSONNES + id);
+  }
+  deletePersonneById(id: number): Observable<any> {
+    const token = localStorage.getItem('token');/*
+    const params = new HttpParams().set('access_token', token); */
+    const headers = new HttpHeaders().set('Authorization', token);
+    return this.http.delete<any>(API_PERSONNES + id, {headers});
+  }
+
+  deleteFakePersonne(personne: Personne): boolean {
     const index = this.personnes.indexOf(personne);
     if (index === -1) {
       return false;

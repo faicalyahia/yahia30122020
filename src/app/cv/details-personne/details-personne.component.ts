@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CvService } from './../services/cv.service';
 import { Personne } from './../model/personne';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-details-personne',
@@ -19,15 +21,17 @@ export class DetailsPersonneComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private cvService: CvService,
-    private router: Router
+    private router: Router,
+    private tostr: ToastrService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      this.personne = this.cvService.findPersonneById(+params.id);
-      if (!this.personne) {
-        this.router.navigate(['cv']);
-      }
+      this.cvService.findPersonneById(+params.id).subscribe(
+        (personne) => (this.personne = personne),
+        (erreur) => this.router.navigate(['cv'])
+      );
     });
   }
 
@@ -36,7 +40,14 @@ export class DetailsPersonneComponent implements OnInit {
       1- Appelle le service et je lui demande de supprimer l'objet personne
       2- le rediriger vers le CVComponent
     */
-    this.cvService.deletePersonne(this.personne);
-    this.router.navigate(['cv']);
+    this.cvService.deletePersonneById(this.personne.id).subscribe(
+      (success) => this.router.navigate(['cv']),
+      (erreur) => {
+        this.tostr.error(
+          `Problème de suppression, veuillez contacter l'admin :(`
+        );
+        console.log(erreur);
+      }
+    );
   }
 }
