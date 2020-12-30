@@ -24,6 +24,9 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo.component';
 import { ToastrModule } from 'ngx-toastr';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DetailsPersonneComponent } from './cv/details-personne/details-personne.component';
+import { NF404Component } from './components/nf404/nf404.component';
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     DefaultImagePipe,
     TodoComponent,
     EmbaucheComponent,
+    HeaderComponent,
+    DetailsPersonneComponent,
+    NF404Component,
   ],
   imports: [
     BrowserModule,

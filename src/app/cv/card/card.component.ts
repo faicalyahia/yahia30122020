@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Personne } from '../model/personne';
 import { EmbaucheService } from './../services/embauche.service';
@@ -12,7 +13,8 @@ export class CardComponent implements OnInit {
   @Input() personne: Personne = null;
   constructor(
     private embaucheService: EmbaucheService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -26,5 +28,9 @@ export class CardComponent implements OnInit {
         ${this.personne.name} a été sélectionné pour l'embauche
       `);
     }
+  }
+
+  details() {
+    this.router.navigate(['/cv', this.personne.id]);
   }
 }
