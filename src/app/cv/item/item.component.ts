@@ -8,6 +8,8 @@ import { Personne } from './../model/personne';
 })
 export class ItemComponent implements OnInit {
   @Input() personne: Personne = null;
+  @Input() size = 50;
+  @Input() isDiv = true;
   /*
   1- crée mon evenement
   */

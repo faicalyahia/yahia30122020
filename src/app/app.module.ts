@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -22,6 +22,8 @@ import { TestNgClassComponent } from './directives/test-ng-class/test-ng-class.c
 import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo.component';
+import { ToastrModule } from 'ngx-toastr';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
 
 
 @NgModule({
@@ -44,8 +46,15 @@ import { TodoComponent } from './todo/todo.component';
     EuroDollarPipe,
     DefaultImagePipe,
     TodoComponent,
+    EmbaucheComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
